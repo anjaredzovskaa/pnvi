@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnvey5u3b1qqg"]
+
+[ext_resource type="Script" path="res://chest.gd" id="1_qy57y"]
+[ext_resource type="PackedScene" uid="uid://c8m7vl08fqkys" path="res://Assets/Models/TreasureChest.glb" id="1_wmxtw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7k7fx"]
+size = Vector3(1.08704, 0.653259, 0.724609)
+
+[node name="chest" type="Area3D"]
+script = ExtResource("1_qy57y")
+
+[node name="TreasureChest" parent="." instance=ExtResource("1_wmxtw")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.0217896, 1.00157, -0.00585938)
+shape = SubResource("BoxShape3D_7k7fx")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_chest_timeout"]

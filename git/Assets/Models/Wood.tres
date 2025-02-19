@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://61s2thfhfcbj"]
+
+[ext_resource type="Texture2D" uid="uid://2ivljwhtrmuv" path="res://Assets/Models/TreasureChest_plank_texture.jpg" id="1_iid0v"]
+
+[resource]
+resource_name = "Wood"
+cull_mode = 2
+albedo_texture = ExtResource("1_iid0v")
+roughness = 0.5

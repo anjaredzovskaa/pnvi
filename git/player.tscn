@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlju7updjsiel"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_5bf2s"]
+[ext_resource type="PackedScene" uid="uid://dl314e8rch5nr" path="res://addons/kaykit_character_pack_adventures/Characters/gltf/Mage.glb" id="2_7or8q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1xs2g"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_5bf2s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1xs2g")
+
+[node name="Mage" parent="CollisionShape3D" instance=ExtResource("2_7or8q")]
+transform = Transform3D(-0.999925, 0, 0.0122169, 0, 1, 0, -0.0122169, 0, -0.999925, 0, -0.6, 0)
+
+[node name="CameraController" type="Node3D" parent="."]
+top_level = true
+
+[node name="CameraTarget" type="Node3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 0.975292, 0.220919, 0, -0.220919, 0.975292, 0, 3.78447, 8.20882)
+
+[node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget"]
+current = true
